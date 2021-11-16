@@ -26,22 +26,22 @@ int main(void) {
 
   size_t available_cap = buf.capacity - buf.len;
   bool nondet_parameter = nd_bool();
-
+  sassert(0);
   if (aws_byte_buf_write_from_whole_string(nondet_parameter ? &buf : NULL,
                                            str) &&
       str) {
     sassert(aws_string_is_valid(str));
     sassert(available_cap >= str->len);
     if (nondet_parameter) {
-      sassert(buf.len == old_buf.len + str->len);
-      sassert(old_buf.capacity == buf.capacity);
-      sassert(old_buf.allocator == buf.allocator);
-      if (str->len > 0 && buf.len > 0) {
-        assert_bytes_match(buf.buffer + old_buf.len, str->bytes, str->len);
-      }
+      //sassert(buf.len == old_buf.len + str->len);
+      //sassert(old_buf.capacity == buf.capacity);
+      //sassert(old_buf.allocator == buf.allocator);
+      //if (str->len > 0 && buf.len > 0) {
+      //  assert_bytes_match(buf.buffer + old_buf.len, str->bytes, str->len);
+     // }
     }
   } else {
-    assert_byte_buf_equivalence(&buf, &old_buf, &old_byte_from_buf);
+   // assert_byte_buf_equivalence(&buf, &old_buf, &old_byte_from_buf);
   }
 
   sassert(aws_byte_buf_is_valid(&buf));
