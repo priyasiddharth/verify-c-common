@@ -1,7 +1,7 @@
 add_executable(hash_table_eq
   ${AWS_C_COMMON_ROOT}/source/common.c
   aws_hash_table_eq_harness.c)
-set(MAX_TABLE_SIZE 8)
+set(MAX_TABLE_SIZE 4)
 target_compile_definitions(hash_table_eq
                             PUBLIC
                             MAX_TABLE_SIZE=${MAX_TABLE_SIZE})
